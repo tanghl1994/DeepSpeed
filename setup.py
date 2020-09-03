@@ -179,7 +179,7 @@ def command_exists(cmd):
 ## Sparse transformer ##
 if BUILD_MASK & DS_BUILD_SPARSE_ATTN:
     # Check to see if llvm and cmake are installed since they are dependencies
-    required_commands = ['llc-9', 'cmake']
+    required_commands = ['llvm-config', 'cmake']
 
     command_status = list(map(command_exists, required_commands))
     if not all(command_status):
