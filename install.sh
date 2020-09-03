@@ -163,10 +163,11 @@ if [ ! -f $hostfile ]; then
     local_only=1
 fi
 
-#if [ "$skip_requirements" == "0" ]; then
-#    # Ensure dependencies are installed locally
-#    $PIP_SUDO $PIP_INSTALL -r requirements.txt
-#fi
+if [ "$skip_requirements" == "0" ]; then
+    # Ensure dependencies are installed locally
+    $PIP_SUDO $PIP_INSTALL -r requirements/requirements.txt
+    $PIP_SUDO $PIP_INSTALL -r requirements/requirements-sparse-attn.txt
+fi
 
 # Build wheels
 if [ "$third_party_install" == "1" ]; then
