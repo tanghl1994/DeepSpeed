@@ -1,7 +1,9 @@
 #!/bin/bash
 
-sudo pip install triton==0.2.1
-
+#sudo pip install triton==0.2.1
+sudo pip install -r requirements/requirements.txt
+sudo pip install -r requirements/requirements-sparse-attn.txt
+python -c "import triton; print(triton)"
 exit 0
 
 set -e
