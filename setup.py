@@ -38,11 +38,11 @@ DS_BUILD_CUDA = int(os.environ.get('DS_BUILD_CUDA', 1)) * DS_BUILD_ALL_OPS
 
 # Set default of each op based on if build_cuda is set
 OP_DEFAULT = DS_BUILD_CUDA == DS_BUILD_ALL_OPS
-DS_BUILD_LAMB = int(os.environ.get('DS_BUILD_LAMB', OP_DEFAULT)) * DS_BUILD_LAMB_MASK
+DS_BUILD_LAMB = int(os.environ.get('DS_BUILD_LAMB', 0)) * DS_BUILD_LAMB_MASK
 DS_BUILD_TRANSFORMER = int(os.environ.get('DS_BUILD_TRANSFORMER',
-                                          OP_DEFAULT)) * DS_BUILD_TRANSFORMER_MASK
+                                          0)) * DS_BUILD_TRANSFORMER_MASK
 DS_BUILD_SPARSE_ATTN = int(os.environ.get('DS_BUILD_SPARSE_ATTN',
-                                          0)) * DS_BUILD_SPARSE_ATTN_MASK
+                                          OP_DEFAULT)) * DS_BUILD_SPARSE_ATTN_MASK
 
 # Final effective mask is the bitwise OR of each op
 BUILD_MASK = (DS_BUILD_LAMB | DS_BUILD_TRANSFORMER | DS_BUILD_SPARSE_ATTN)
