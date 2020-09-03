@@ -1,5 +1,9 @@
 #!/bin/bash
 
+sudo pip install triton==0.2.1
+
+exit 0
+
 set -e
 err_report() {
     echo "Error on line $1"
