@@ -3,22 +3,22 @@ jobs:
 - job: DeepSpeed_Tests
   timeoutInMinutes: 360
   pool:
-    name: 'DS_testing_jeff'
+    name: 'DS_testing'
 
   strategy:
     matrix:
-      #PyTorch12-CUDA100:
-      #  python.version: '3.6'
-      #  cuda.version: '10.0'
-      #  pytorch.version: '1.2'
-      #  torchvision.version: '0.4.0'
-      #  runmodeltests: true
-      PyTorch15-CUDA101:
-        python.version: '3.7'
-        cuda.version: '10.1'
-        pytorch.version: '1.5.0+cu101'
-        torchvision.version: '0.6.0+cu101'
+      PyTorch12-CUDA100:
+        python.version: '3.6'
+        cuda.version: '10.0'
+        pytorch.version: '1.2'
+        torchvision.version: '0.4.0'
         runmodeltests: true
+      #PyTorch15-CUDA101:
+      #  python.version: '3.7'
+      #  cuda.version: '10.1'
+      #  pytorch.version: '1.5.0+cu101'
+      #  torchvision.version: '0.6.0+cu101'
+      #  runmodeltests: true
       ##PyTorch15-CUDA102:
       #  python.version: '3.7'
       #  cuda.version: '10.2'
@@ -47,7 +47,7 @@ jobs:
     # Manually install torch/torchvision first to enforce versioning.
   - script: |
       source activate $(conda_env)
-      pip install --progress-bar=off torch==$(pytorch.version) torchvision==$(torchvision.version) -f https://download.pytorch.org/whl/torch_stable.html
+      pip install --progress-bar=off torch==$(pytorch.version) torchvision==$(torchvision.version) #-f https://download.pytorch.org/whl/torch_stable.html
       ./install.sh --local_only
       #python -I basic_install_test.py
     displayName: 'Install DeepSpeed'
