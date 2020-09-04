@@ -59,9 +59,9 @@ jobs:
       which nvcc
       nvcc --version
       which deepspeed
-      python -c "import torch; print('torch:', torch.__version__, torch)"
-      python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
-      python -c "import deepspeed; print('deepspeed:', deepspeed.__version__)"
+      python -I -c "import torch; print('torch:', torch.__version__, torch)"
+      python -I -c "import torch; print('CUDA available:', torch.cuda.is_available())"
+      python -I -c "import deepspeed; print('deepspeed:', deepspeed.__version__)"
     displayName: 'Show environment'
 
 
