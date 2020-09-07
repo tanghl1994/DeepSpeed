@@ -6,9 +6,9 @@
 import pytest
 import torch
 try:
-  import triton
+    import triton
 except ImportError:
-  print('unable to import triton, feature might not be installed')
+    print('unable to import triton, feature might not be installed')
 
 
 def test_sparse_attention_module_availability():
